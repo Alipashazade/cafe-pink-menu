@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#111111">
+
 <title>منوی کافه پینک</title>
 
 <style>
@@ -11,159 +11,138 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 85px;
-}
-
 body {
     margin: 0;
     background: #111111;
-    color: #ffffff;
+    color: white;
     font-family: Tahoma, Arial, sans-serif;
-    line-height: 1.8;
 }
 
 header {
     text-align: center;
-    padding: 38px 16px 25px;
-    background: linear-gradient(145deg, #29121f, #111111 75%);
-    border-bottom: 1px solid #ff69b4;
+    padding: 30px 15px 20px;
+    background: linear-gradient(135deg, #21131b, #111111);
+    border-bottom: 2px solid #ff69b4;
 }
 
 .logo {
-    width: 76px;
-    height: 76px;
-    margin: 0 auto 12px;
-    border: 2px solid #ff69b4;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: #ff69b4;
-    font-size: 30px;
-    box-shadow: 0 0 20px #ff69b433;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 32px;
-    color: #ff69b4;
-    letter-spacing: 1px;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 header p {
-    margin: 7px 0 0;
     color: #dddddd;
     font-size: 13px;
 }
 
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
+.search-box {
+    padding: 15px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 13px;
+    border-radius: 12px;
+    border: 1px solid #ff69b4;
+    background: #202020;
+    color: white;
+    font-size: 14px;
+    outline: none;
+}
+
+.categories {
     display: flex;
     gap: 8px;
-    padding: 12px;
     overflow-x: auto;
-    background: #111111;
-    border-bottom: 1px solid #333333;
-    scrollbar-width: none;
+    padding: 5px 15px 15px;
 }
 
-nav::-webkit-scrollbar {
-    display: none;
+.categories button {
+    flex-shrink: 0;
+    padding: 10px 15px;
+    border: 1px solid #ff69b4;
+    background: #202020;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
-nav a {
-    flex: 0 0 auto;
-    text-decoration: none;
-    color: #ffb6d9;
-    background: #242024;
-    border: 1px solid #65344e;
-    border-radius: 22px;
-    padding: 8px 13px;
-    font-size: 12px;
-    white-space: nowrap;
-}
-
-nav a:active {
+.categories button.active,
+.categories button:hover {
     background: #ff69b4;
     color: #111111;
 }
 
-.container {
-    max-width: 600px;
-    margin: auto;
-    padding: 18px 14px 35px;
+h2 {
+    color: #ff69b4;
+    font-size: 20px;
+    padding: 0 15px;
+    margin-top: 20px;
 }
 
-.category {
-    margin-bottom: 28px;
-    scroll-margin-top: 85px;
-}
-
-.category h2 {
-    color: #ff80bd;
-    font-size: 19px;
-    margin: 0 0 12px;
-    padding: 0 12px 10px 0;
-    border-bottom: 1px solid #65344e;
-}
-
-.menu-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.menu {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
-    padding: 13px 12px;
-    margin-bottom: 8px;
-    background: #1c1a1c;
-    border: 1px solid #30262d;
-    border-radius: 12px;
+    padding: 12px;
 }
 
-.item-name {
+.item {
+    background: #202020;
+    border: 1px solid #353535;
+    border-radius: 14px;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.item img {
+    width: 100%;
+    height: 125px;
+    object-fit: cover;
+    display: block;
+}
+
+.item-info {
+    padding: 12px;
+}
+
+.item h3 {
     font-size: 14px;
-    font-weight: normal;
-    color: #ffffff;
+    margin: 0 0 10px;
+    line-height: 1.8;
 }
 
 .price {
-    flex-shrink: 0;
-    color: #ff80bd;
-    font-size: 13px;
+    color: #ff69b4;
+    font-size: 14px;
     font-weight: bold;
-    white-space: nowrap;
+}
+
+.empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #cccccc;
+    padding: 25px 10px;
 }
 
 footer {
     text-align: center;
-    padding: 22px 12px;
-    color: #aaaaaa;
-    border-top: 1px solid #333333;
-    font-size: 12px;
-}
-
-footer span {
+    padding: 25px 10px;
     color: #ff69b4;
+    font-size: 13px;
 }
 
-@media (min-width: 500px) {
-    .container {
-        padding-top: 25px;
+@media (min-width: 600px) {
+    .menu {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        max-width: 950px;
+        margin: auto;
     }
 
-    .menu-item {
-        padding: 15px 18px;
-    }
-
-    .item-name {
-        font-size: 15px;
-    }
-
-    .price {
-        font-size: 14px;
+    .categories {
+        justify-content: center;
     }
 }
 </style>
@@ -172,173 +151,193 @@ footer span {
 <body>
 
 <header>
-    <div class="logo">☕</div>
-    <h1>کافه پینک</h1>
-    <p>یک فنجان حال خوب، به رنگ صورتی</p>
+    <div class="logo">کافه پینک 🩷</div>
+    <p>یه جرعه آرامش، یه دنیا حال خوب!</p>
 </header>
 
-<nav>
-    <a href="#hot">☕ نوشیدنی‌های گرم</a>
-    <a href="#cold">🧊 نوشیدنی‌های سرد</a>
-    <a href="#powder">🥤 نوشیدنی‌های پودری</a>
-    <a href="#juice">🍹 آبمیوه‌ها</a>
+<div class="search-box">
+    <input
+        type="search"
+        id="search"
+        placeholder="🔍 اسم نوشیدنی یا خوراکی رو بنویس..."
+        oninput="renderMenu()"
+    >
+</div>
+
+<nav class="categories" id="categories">
+    <button class="active" onclick="setCategory('همه', this)">همه</button>
+    <button onclick="setCategory('گرم', this)">نوشیدنی گرم ☕</button>
+    <button onclick="setCategory('سرد', this)">نوشیدنی سرد 🧋</button>
+    <button onclick="setCategory('خوراکی', this)">خوراکی‌ها 🍰</button>
 </nav>
 
-<main class="container">
+<h2 id="sectionTitle">منوی کافه</h2>
 
-    <section class="category" id="hot">
-        <h2>☕ نوشیدنی‌های گرم</h2>
-
-        <div class="menu-item">
-            <span class="item-name">اسپرسو</span>
-            <span class="price">۱۴۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">آمریکانو</span>
-            <span class="price">۱۸۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">لاته</span>
-            <span class="price">۲۸۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">کاپوچینو</span>
-            <span class="price">۲۸۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">موکا</span>
-            <span class="price">۲۸۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">کارامل ماکیاتو</span>
-            <span class="price">۲۸۰٬۰۰۰ تومان</span>
-        </div>
-    </section>
-
-    <section class="category" id="cold">
-        <h2>🧊 نوشیدنی‌های سرد</h2>
-
-        <div class="menu-item">
-            <span class="item-name">آیس‌لاته</span>
-            <span class="price">۳۰۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">آیس‌آمریکانو</span>
-            <span class="price">۲۰۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">آیس‌موکا</span>
-            <span class="price">۳۰۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">آیس کارامل ماکیاتو</span>
-            <span class="price">۳۰۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">موهیتو</span>
-            <span class="price">۳۰۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">رد موهیتو</span>
-            <span class="price">۳۰۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">لیموناد</span>
-            <span class="price">۲۸۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">شیر موز</span>
-            <span class="price">۳۰۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">هویج بستنی</span>
-            <span class="price">۳۰۰٬۰۰۰ تومان</span>
-        </div>
-    </section>
-
-    <section class="category" id="powder">
-        <h2>🥤 نوشیدنی‌های پودری</h2>
-
-        <div class="menu-item">
-            <span class="item-name">هات چاکلت</span>
-            <span class="price">۲۸۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">وایت چاکلت</span>
-            <span class="price">۲۸۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">چای ماسالا</span>
-            <span class="price">۲۸۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">چای کرک</span>
-            <span class="price">۲۸۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">ثعلب وانیلی</span>
-            <span class="price">۲۸۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">ثعلب شکلاتی</span>
-            <span class="price">۳۰۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">هات پسته</span>
-            <span class="price">۳۰۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">هات فندق</span>
-            <span class="price">۳۰۰٬۰۰۰ تومان</span>
-        </div>
-    </section>
-
-    <section class="category" id="juice">
-        <h2>🍹 آبمیوه‌ها</h2>
-
-        <div class="menu-item">
-            <span class="item-name">آب پرتقال</span>
-            <span class="price">۲۵۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">آب هویج</span>
-            <span class="price">۲۵۰٬۰۰۰ تومان</span>
-        </div>
-
-        <div class="menu-item">
-            <span class="item-name">آب انار</span>
-            <span class="price">۲۵۰٬۰۰۰ تومان</span>
-        </div>
-    </section>
-
-</main>
+<main class="menu" id="menu"></main>
 
 <footer>
-    <span>کافه پینک</span>
-    <br>
-    با عشق برای شما ♡
+    با عشق از کافه پینک 🩷
 </footer>
+
+<script>
+const products = [
+
+    // نوشیدنی‌های گرم
+    {
+        name: "اسپرسو رومانو",
+        category: "گرم",
+        price: 0,
+        image: ""
+    },
+    {
+        name: "چای لاته",
+        category: "گرم",
+        price: 0,
+        image: ""
+    },
+    {
+        name: "مارشمالو پینک چاکلت",
+        category: "گرم",
+        price: 0,
+        image: ""
+    },
+    {
+        name: "پاپس چاکلت",
+        category: "گرم",
+        price: 0,
+        image: ""
+    },
+
+    // نوشیدنی‌های سرد
+    {
+        name: "آیس موکا",
+        category: "سرد",
+        price: 0,
+        image: ""
+    },
+    {
+        name: "شیر نوتلا",
+        category: "سرد",
+        price: 0,
+        image: ""
+    },
+    {
+        name: "بابل تی کاراملی",
+        category: "سرد",
+        price: 0,
+        image: ""
+    },
+    {
+        name: "شیر موز",
+        category: "سرد",
+        price: 0,
+        image: ""
+    },
+    {
+        name: "کن هیلو",
+        category: "سرد",
+        price: 0,
+        image: ""
+    },
+
+    // خوراکی‌ها
+    {
+        name: "کیک خامه‌ای",
+        category: "خوراکی",
+        price: 0,
+        image: ""
+    },
+    {
+        name: "پاستا",
+        category: "خوراکی",
+        price: 0,
+        image: ""
+    },
+    {
+        name: "اسنک",
+        category: "خوراکی",
+        price: 0,
+        image: ""
+    },
+    {
+        name: "سیب‌زمینی سرخ‌کرده",
+        category: "خوراکی",
+        price: 0,
+        image: ""
+    }
+
+];
+
+let currentCategory = "همه";
+
+function setCategory(category, button) {
+    currentCategory = category;
+
+    document.querySelectorAll(".categories button")
+        .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    renderMenu();
+}
+
+function renderMenu() {
+    const menu = document.getElementById("menu");
+    const search = document.getElementById("search")
+        .value.trim().toLowerCase();
+
+    menu.innerHTML = "";
+
+    const filtered = products.filter(product => {
+        const matchesCategory =
+            currentCategory === "همه" ||
+            product.category === currentCategory;
+
+        const matchesSearch =
+            product.name.toLowerCase().includes(search);
+
+        return matchesCategory && matchesSearch;
+    });
+
+    if (filtered.length === 0) {
+        menu.innerHTML =
+            '<div class="empty">محصولی پیدا نشد 🩷</div>';
+        return;
+    }
+
+    filtered.forEach(product => {
+        const card = document.createElement("article");
+        card.className = "item";
+
+        if (product.image) {
+            const img = document.createElement("img");
+            img.src = product.image;
+            img.alt = product.name;
+            img.loading = "lazy";
+            card.appendChild(img);
+        }
+
+        const info = document.createElement("div");
+        info.className = "item-info";
+
+        const title = document.createElement("h3");
+        title.textContent = product.name;
+
+        const price = document.createElement("div");
+        price.className = "price";
+        price.textContent = product.price > 0
+            ? product.price.toLocaleString("fa-IR") + " تومان"
+            : "قیمت به‌زودی";
+
+        info.appendChild(title);
+        info.appendChild(price);
+        card.appendChild(info);
+        menu.appendChild(card);
+    });
+}
+
+renderMenu();
+</script>
 
 </body>
 </html>
