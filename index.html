@@ -2,148 +2,158 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>منوی کافه پینک</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#171117">
+<title>منوی آنلاین کافه پینک</title>
 
 <style>
+:root {
+  --pink: #ff72b6;
+  --dark: #171117;
+  --card: #251d25;
+  --muted: #c9bdc7;
+}
+
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    background: #111111;
-    color: white;
-    font-family: Tahoma, Arial, sans-serif;
+  margin: 0;
+  background: var(--dark);
+  color: #fff;
+  font-family: Tahoma, Arial, sans-serif;
 }
 
 header {
-    text-align: center;
-    padding: 30px 15px 20px;
-    background: linear-gradient(135deg, #21131b, #111111);
-    border-bottom: 2px solid #ff69b4;
+  padding: 32px 15px 25px;
+  text-align: center;
+  background: linear-gradient(145deg, #442239, #171117);
+  border-bottom: 2px solid var(--pink);
 }
 
 .logo {
-    color: #ff69b4;
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  color: var(--pink);
+  font-size: 36px;
+  font-weight: bold;
 }
 
 header p {
-    color: #dddddd;
-    font-size: 13px;
+  color: #eee;
+  font-size: 13px;
 }
 
-.search-box {
-    padding: 15px;
+.search {
+  padding: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--dark);
 }
 
-.search-box input {
-    width: 100%;
-    padding: 13px;
-    border-radius: 12px;
-    border: 1px solid #ff69b4;
-    background: #202020;
-    color: white;
-    font-size: 14px;
-    outline: none;
+.search input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--pink);
+  border-radius: 12px;
+  background: var(--card);
+  color: white;
+  font-size: 15px;
 }
 
 .categories {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding: 5px 15px 15px;
+  display: flex;
+  gap: 8px;
+  padding: 0 14px 12px;
+  overflow-x: auto;
 }
 
 .categories button {
-    flex-shrink: 0;
-    padding: 10px 15px;
-    border: 1px solid #ff69b4;
-    background: #202020;
-    color: white;
-    border-radius: 20px;
-    cursor: pointer;
+  flex-shrink: 0;
+  border: 1px solid var(--pink);
+  border-radius: 22px;
+  padding: 10px 14px;
+  background: var(--card);
+  color: white;
+  font-size: 13px;
 }
 
-.categories button.active,
-.categories button:hover {
-    background: #ff69b4;
-    color: #111111;
+.categories button.active {
+  background: var(--pink);
+  color: #23131d;
+  font-weight: bold;
 }
 
 h2 {
-    color: #ff69b4;
-    font-size: 20px;
-    padding: 0 15px;
-    margin-top: 20px;
+  margin: 20px 15px 10px;
+  color: var(--pink);
+  font-size: 20px;
 }
 
 .menu {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 12px;
 }
 
 .item {
-    background: #202020;
-    border: 1px solid #353535;
-    border-radius: 14px;
-    overflow: hidden;
-    min-width: 0;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid #44313f;
+  border-radius: 14px;
 }
 
 .item img {
-    width: 100%;
-    height: 125px;
-    object-fit: cover;
-    display: block;
+  display: block;
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  background: #332632;
 }
 
 .item-info {
-    padding: 12px;
+  padding: 12px;
 }
 
 .item h3 {
-    font-size: 14px;
-    margin: 0 0 10px;
-    line-height: 1.8;
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0 0 7px;
 }
 
 .price {
-    color: #ff69b4;
-    font-size: 14px;
-    font-weight: bold;
+  color: var(--pink);
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .empty {
-    grid-column: 1 / -1;
-    text-align: center;
-    color: #cccccc;
-    padding: 25px 10px;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 30px;
+  color: var(--muted);
 }
 
 footer {
-    text-align: center;
-    padding: 25px 10px;
-    color: #ff69b4;
-    font-size: 13px;
+  text-align: center;
+  padding: 30px 10px;
+  color: var(--pink);
+  font-size: 13px;
 }
 
-@media (min-width: 600px) {
-    .menu {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        max-width: 950px;
-        margin: auto;
-    }
+@media (min-width: 650px) {
+  .menu {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 1000px;
+    margin: auto;
+  }
 
-    .categories {
-        justify-content: center;
-    }
+  .categories {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
 </style>
 </head>
@@ -151,191 +161,243 @@ footer {
 <body>
 
 <header>
-    <div class="logo">کافه پینک 🩷</div>
-    <p>یه جرعه آرامش، یه دنیا حال خوب!</p>
+  <div class="logo">کافه پینک 🩷</div>
+  <p>یه جرعه آرامش، یه دنیا حال خوب!</p>
 </header>
 
-<div class="search-box">
-    <input
-        type="search"
-        id="search"
-        placeholder="🔍 اسم نوشیدنی یا خوراکی رو بنویس..."
-        oninput="renderMenu()"
-    >
+<div class="search">
+  <input
+    id="search"
+    type="search"
+    placeholder="🔍 اسم نوشیدنی یا خوراکی..."
+    autocomplete="off"
+  >
 </div>
 
-<nav class="categories" id="categories">
-    <button class="active" onclick="setCategory('همه', this)">همه</button>
-    <button onclick="setCategory('گرم', this)">نوشیدنی گرم ☕</button>
-    <button onclick="setCategory('سرد', this)">نوشیدنی سرد 🧋</button>
-    <button onclick="setCategory('خوراکی', this)">خوراکی‌ها 🍰</button>
-</nav>
+<nav class="categories" id="categories"></nav>
 
 <h2 id="sectionTitle">منوی کافه</h2>
 
 <main class="menu" id="menu"></main>
 
 <footer>
-    با عشق از کافه پینک 🩷
+  با عشق از کافه پینک 🩷
 </footer>
 
 <script>
+/*
+  برای ثبت قیمت، مقدار price را تغییر بده.
+  برای افزودن عکس، لینک عکس را در image قرار بده.
+  قیمت صفر یعنی قیمت هنوز ثبت نشده است.
+*/
+
 const products = [
 
-    // نوشیدنی‌های گرم
-    {
-        name: "اسپرسو رومانو",
-        category: "گرم",
-        price: 0,
-        image: ""
-    },
-    {
-        name: "چای لاته",
-        category: "گرم",
-        price: 0,
-        image: ""
-    },
-    {
-        name: "مارشمالو پینک چاکلت",
-        category: "گرم",
-        price: 0,
-        image: ""
-    },
-    {
-        name: "پاپس چاکلت",
-        category: "گرم",
-        price: 0,
-        image: ""
-    },
+  // قهوه گرم
+  {name:"اسپرسو", category:"قهوه گرم"},
+  {name:"آمریکانو", category:"قهوه گرم"},
+  {name:"کاپوچینو", category:"قهوه گرم"},
+  {name:"لاته", category:"قهوه گرم"},
+  {name:"بیسکو لاته", category:"قهوه گرم"},
+  {name:"نوتلا لاته", category:"قهوه گرم"},
+  {name:"لوتوس لاته", category:"قهوه گرم"},
+  {name:"لاته دارچین", category:"قهوه گرم"},
+  {name:"کارامل ماکیاتو", category:"قهوه گرم"},
+  {name:"موکا", category:"قهوه گرم"},
+  {name:"وایت موکا", category:"قهوه گرم"},
+  {name:"شیر نسکافه", category:"قهوه گرم"},
+  {name:"اسپرسو رومانو", category:"قهوه گرم"},
 
-    // نوشیدنی‌های سرد
-    {
-        name: "آیس موکا",
-        category: "سرد",
-        price: 0,
-        image: ""
-    },
-    {
-        name: "شیر نوتلا",
-        category: "سرد",
-        price: 0,
-        image: ""
-    },
-    {
-        name: "بابل تی کاراملی",
-        category: "سرد",
-        price: 0,
-        image: ""
-    },
-    {
-        name: "شیر موز",
-        category: "سرد",
-        price: 0,
-        image: ""
-    },
-    {
-        name: "کن هیلو",
-        category: "سرد",
-        price: 0,
-        image: ""
-    },
+  // قهوه سرد
+  {name:"کن هیلو", category:"قهوه سرد"},
+  {name:"آیس کافی", category:"قهوه سرد"},
+  {name:"آیس آمریکانو", category:"قهوه سرد"},
+  {name:"آیس موکا", category:"قهوه سرد"},
+  {name:"هایپر انرژی", category:"قهوه سرد"},
+  {name:"آیس کارامل", category:"قهوه سرد"},
+  {name:"آیس لاته فندقی", category:"قهوه سرد"},
+  {name:"اورنج آمریکانو", category:"قهوه سرد"},
+  {name:"آفوگاتو", category:"قهوه سرد"},
 
-    // خوراکی‌ها
-    {
-        name: "کیک خامه‌ای",
-        category: "خوراکی",
-        price: 0,
-        image: ""
-    },
-    {
-        name: "پاستا",
-        category: "خوراکی",
-        price: 0,
-        image: ""
-    },
-    {
-        name: "اسنک",
-        category: "خوراکی",
-        price: 0,
-        image: ""
-    },
-    {
-        name: "سیب‌زمینی سرخ‌کرده",
-        category: "خوراکی",
-        price: 0,
-        image: ""
-    }
+  // نوشیدنی گرم
+  {name:"هات چاکلت", category:"نوشیدنی گرم"},
+  {name:"وایت چاکلت", category:"نوشیدنی گرم"},
+  {name:"پینک چاکلت", category:"نوشیدنی گرم"},
+  {name:"شیر نسکافه", category:"نوشیدنی گرم"},
+  {name:"ماسالا", category:"نوشیدنی گرم"},
+  {name:"چای لاته", category:"نوشیدنی گرم"},
+  {name:"شیر کاکائو", category:"نوشیدنی گرم"},
+  {name:"شیر توت‌فرنگی", category:"نوشیدنی گرم"},
+  {name:"چای نعنا", category:"نوشیدنی گرم"},
+  {name:"شیر لوتوس", category:"نوشیدنی گرم"},
+  {name:"چای زعفرانی", category:"نوشیدنی گرم"},
+  {name:"پاپس چاکلت", category:"نوشیدنی گرم"},
+  {name:"شیر نوتلا", category:"نوشیدنی گرم"},
+  {name:"مارشمالو پینک چاکلت", category:"نوشیدنی گرم"},
 
+  // شیک
+  {name:"شیک شکلات", category:"شیک"},
+  {name:"شیک نوتلا", category:"شیک"},
+  {name:"شیک توت‌فرنگی", category:"شیک"},
+  {name:"شیک لوتوس", category:"شیک"},
+  {name:"شیک شاه‌توت", category:"شیک"},
+  {name:"شیک انبه", category:"شیک"},
+  {name:"شیک پروتئین", category:"شیک"},
+  {name:"شیر موز", category:"شیک"},
+
+  // ماچا
+  {name:"ماچا لاته", category:"ماچا"},
+  {name:"ماچا پسته", category:"ماچا"},
+  {name:"ماچا لوتوس", category:"ماچا"},
+  {name:"ماچا مانگو", category:"ماچا"},
+  {name:"ماچا وانیل", category:"ماچا"},
+  {name:"اسپیرولینا", category:"ماچا"},
+
+  // ساندویچ سرد و خوراکی
+  {name:"ساندویچ سرد", category:"ساندویچ سرد"},
+  {name:"پاستا", category:"ساندویچ سرد"},
+  {name:"اسنک", category:"ساندویچ سرد"},
+  {name:"سیب‌زمینی سرخ‌کرده", category:"ساندویچ سرد"},
+
+  // کیک و دسر
+  {name:"کیک خیس شکلات", category:"کیک و دسر"},
+  {name:"کیک خانگی", category:"کیک و دسر"},
+  {name:"چیزکیک", category:"کیک و دسر"},
+  {name:"براونی", category:"کیک و دسر"},
+  {name:"تیرامیسو", category:"کیک و دسر"},
+  {name:"کوکی", category:"کیک و دسر"},
+  {name:"موچی", category:"کیک و دسر"},
+  {name:"کیک خامه‌ای", category:"کیک و دسر"},
+
+  // نوشیدنی سرد
+  {name:"شیر موز", category:"نوشیدنی سرد"},
+  {name:"شیر موز بستنی", category:"نوشیدنی سرد"},
+  {name:"شیر کاکائو", category:"نوشیدنی سرد"},
+  {name:"شیر پسته", category:"نوشیدنی سرد"},
+  {name:"لیموناد", category:"نوشیدنی سرد"},
+  {name:"موهیتو", category:"نوشیدنی سرد"},
+  {name:"رد موهیتو", category:"نوشیدنی سرد"},
+  {name:"بلک موهیتو", category:"نوشیدنی سرد"},
+  {name:"تاپ‌شی", category:"نوشیدنی سرد"},
+  {name:"بلک تی کاراملی", category:"نوشیدنی سرد"},
+
+  // بابل تی
+  {name:"بابل تی کاراملی", category:"بابل تی"},
+  {name:"بابل تی دالگونا", category:"بابل تی"},
+  {name:"بابل تی شکلاتی", category:"بابل تی"}
+
+].map(p => ({
+  price: 0,
+  image: "",
+  ...p
+}));
+
+const categoryList = [
+  "همه",
+  "قهوه گرم",
+  "قهوه سرد",
+  "نوشیدنی گرم",
+  "شیک",
+  "ماچا",
+  "ساندویچ سرد",
+  "کیک و دسر",
+  "نوشیدنی سرد",
+  "بابل تی"
 ];
 
-let currentCategory = "همه";
+let selectedCategory = "همه";
 
-function setCategory(category, button) {
-    currentCategory = category;
+const menu = document.getElementById("menu");
+const search = document.getElementById("search");
+const categories = document.getElementById("categories");
+const sectionTitle = document.getElementById("sectionTitle");
 
-    document.querySelectorAll(".categories button")
-        .forEach(btn => btn.classList.remove("active"));
+function createCategories() {
+  categoryList.forEach(category => {
+    const button = document.createElement("button");
+    button.textContent = category;
 
-    button.classList.add("active");
+    if (category === selectedCategory) {
+      button.classList.add("active");
+    }
 
-    renderMenu();
+    button.addEventListener("click", () => {
+      selectedCategory = category;
+
+      document.querySelectorAll(".categories button")
+        .forEach(b => b.classList.remove("active"));
+
+      button.classList.add("active");
+      renderMenu();
+    });
+
+    categories.appendChild(button);
+  });
 }
 
 function renderMenu() {
-    const menu = document.getElementById("menu");
-    const search = document.getElementById("search")
-        .value.trim().toLowerCase();
+  menu.replaceChildren();
 
-    menu.innerHTML = "";
+  const query = search.value.trim().toLocaleLowerCase("fa");
 
-    const filtered = products.filter(product => {
-        const matchesCategory =
-            currentCategory === "همه" ||
-            product.category === currentCategory;
+  const filtered = products.filter(product => {
+    const categoryMatch =
+      selectedCategory === "همه" ||
+      product.category === selectedCategory;
 
-        const matchesSearch =
-            product.name.toLowerCase().includes(search);
+    const searchMatch =
+      product.name.toLocaleLowerCase("fa").includes(query);
 
-        return matchesCategory && matchesSearch;
-    });
+    return categoryMatch && searchMatch;
+  });
 
-    if (filtered.length === 0) {
-        menu.innerHTML =
-            '<div class="empty">محصولی پیدا نشد 🩷</div>';
-        return;
+  sectionTitle.textContent =
+    selectedCategory === "همه"
+      ? "منوی کافه"
+      : selectedCategory;
+
+  if (filtered.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "empty";
+    empty.textContent = "محصولی پیدا نشد 🩷";
+    menu.appendChild(empty);
+    return;
+  }
+
+  filtered.forEach(product => {
+    const card = document.createElement("article");
+    card.className = "item";
+
+    if (product.image) {
+      const img = document.createElement("img");
+      img.src = product.image;
+      img.alt = product.name;
+      img.loading = "lazy";
+      card.appendChild(img);
     }
 
-    filtered.forEach(product => {
-        const card = document.createElement("article");
-        card.className = "item";
+    const info = document.createElement("div");
+    info.className = "item-info";
 
-        if (product.image) {
-            const img = document.createElement("img");
-            img.src = product.image;
-            img.alt = product.name;
-            img.loading = "lazy";
-            card.appendChild(img);
-        }
+    const title = document.createElement("h3");
+    title.textContent = product.name;
 
-        const info = document.createElement("div");
-        info.className = "item-info";
+    const price = document.createElement("div");
+    price.className = "price";
 
-        const title = document.createElement("h3");
-        title.textContent = product.name;
+    price.textContent = product.price > 0
+      ? product.price.toLocaleString("fa-IR") + " تومان"
+      : "قیمت به‌زودی";
 
-        const price = document.createElement("div");
-        price.className = "price";
-        price.textContent = product.price > 0
-            ? product.price.toLocaleString("fa-IR") + " تومان"
-            : "قیمت به‌زودی";
-
-        info.appendChild(title);
-        info.appendChild(price);
-        card.appendChild(info);
-        menu.appendChild(card);
-    });
+    info.append(title, price);
+    card.appendChild(info);
+    menu.appendChild(card);
+  });
 }
 
+search.addEventListener("input", renderMenu);
+
+createCategories();
 renderMenu();
 </script>
 
