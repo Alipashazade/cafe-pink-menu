@@ -368,13 +368,22 @@ function renderMenu() {
     const card = document.createElement("article");
     card.className = "item";
 
-    if (product.image) {
-      const img = document.createElement("img");
-      img.src = product.image;
-      img.alt = product.name;
-      img.loading = "lazy";
-      card.appendChild(img);
-    }
+{
+  const img = document.createElement("img");
+
+  img.src = product.image ||
+    "https://loremflickr.com/400/300/" +
+    encodeURIComponent(product.name);
+
+  img.alt = product.name;
+  img.loading = "lazy";
+
+  img.onerror = function () {
+    this.style.display = "none";
+  };
+
+  card.appendChild(img);
+}
 
     const info = document.createElement("div");
     info.className = "item-info";
